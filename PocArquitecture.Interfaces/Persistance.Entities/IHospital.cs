@@ -1,30 +1,28 @@
-﻿namespace PocArquitecture.Persistance.Entities
+﻿namespace PocArquitecture.Interfaces.Persistance.Entities
 {
-    using PocArquitecture.Interfaces.Persistance.Entities;
-
     /// <summary>
-    /// Defines the <see cref="Hospital" />
+    /// Defines the <see cref="IHospital" />
     /// </summary>
-    public class Hospital : IHospital
+    public interface IHospital
     {
         /// <summary>
         /// Gets or sets the Id
         /// </summary>
-        public int Id { get; set; }
+        int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the Address
         /// </summary>
-        public string Address { get; set; }
+        string Address { get; set; }
 
         /// <summary>
         /// Gets or sets the Name
         /// </summary>
-        public string Name { get; set; }
+        string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the Phone
         /// </summary>
-        public int Phone { get; set; }
+        int Phone { get; set; }
     }
 }

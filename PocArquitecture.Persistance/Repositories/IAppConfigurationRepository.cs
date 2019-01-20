@@ -1,8 +1,9 @@
-﻿using PocArquitecture.Persistance.Entities;
+﻿using PocArquitecture.Interfaces;
+using PocArquitecture.Interfaces.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Repositories
 {
-    public interface IAppConfigurationRepository : IGenericRepository<AppConfiguration>
+    public interface IAppConfigurationRepository : IGenericRepository<IAppConfiguration>
     {
     }
 }

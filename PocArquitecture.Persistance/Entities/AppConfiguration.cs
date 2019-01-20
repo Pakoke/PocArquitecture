@@ -1,9 +1,11 @@
-﻿namespace PocArquitecture.Persistance.Entities
+﻿using PocArquitecture.Interfaces.Persistance.Entities;
+
+namespace PocArquitecture.Persistance.Entities
 {
     /// <summary>
     /// Defines the <see cref="AppConfiguration" />
     /// </summary>
-    public class AppConfiguration
+    public class AppConfiguration : IAppConfiguration
     {
         /// <summary>
         /// Gets or sets the ConfigurationId

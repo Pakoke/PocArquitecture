@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PocArquitecture.Persistance
+namespace PocArquitecture.Interfaces
 {
     public interface IGenericUoW : IDisposable
     {

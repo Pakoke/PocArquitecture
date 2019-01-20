@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PocArquitecture.Persistance
+namespace PocArquitecture.Interfaces
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

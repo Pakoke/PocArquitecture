@@ -1,5 +1,6 @@
-﻿using PocArquitecture.Persistance.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PocArquitecture.Interfaces;
+using PocArquitecture.Persistance.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;

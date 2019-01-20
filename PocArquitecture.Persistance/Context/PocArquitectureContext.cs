@@ -25,10 +25,14 @@
         /// <param name="modelBuilder">The modelBuilder<see cref="ModelBuilder"/></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
-            modelBuilder.ApplyConfiguration(new ClubConfiguration());
-            modelBuilder.ApplyConfiguration(new EmailConfirmationConfiguration());
             modelBuilder.ApplyConfiguration(new AppConfigurationConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+            modelBuilder.ApplyConfiguration(new HospitalConfiguration());
+            modelBuilder.ApplyConfiguration(new PatientConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
+            modelBuilder.ApplyConfiguration(new StaffConfiguration());
+            modelBuilder.ApplyConfiguration(new StaffTypeConfiguration());
+
         }
 
         /// <summary>

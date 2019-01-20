@@ -1,12 +1,12 @@
-﻿using PocArquitecture.Persistance.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using PocArquitecture.Interfaces.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class AppConfigurationConfiguration : IEntityTypeConfiguration<AppConfiguration>
+    public class AppConfigurationConfiguration : IEntityTypeConfiguration<IAppConfiguration>
     {
-        public void Configure(EntityTypeBuilder<AppConfiguration> builder)
+        public void Configure(EntityTypeBuilder<IAppConfiguration> builder)
         {
             builder.ToTable("AppConfiguration");
             builder.HasKey(c => c.ConfigurationId);

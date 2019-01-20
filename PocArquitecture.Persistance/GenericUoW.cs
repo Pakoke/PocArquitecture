@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PocArquitecture.Interfaces;
 
 namespace PocArquitecture.Persistance
 {
