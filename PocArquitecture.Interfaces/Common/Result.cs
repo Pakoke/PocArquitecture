@@ -51,7 +51,22 @@ namespace PocArquitecture.Interfaces.Common
             }
         }
 
-        public abstract EResult ComputeResult();
+        public virtual EResult ComputeResult()
+        {
+            if ( string.IsNullOrWhiteSpace(CodeAsString) )
+                return EResult.ERROR;
+
+            if (CodeAsString.StartsWith("OK"))
+                return EResult.OK;
+
+            if (CodeAsString.StartsWith("ERROR"))
+                return EResult.ERROR;
+
+            if (CodeAsString.StartsWith("WARNING"))
+                return EResult.WARNING;
+
+            return EResult.ERROR;
+        }
     }
 
 

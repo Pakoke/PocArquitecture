@@ -8,6 +8,6 @@ namespace PocArquitecture.Interfaces.BusinessLogic.Entities
     {
         IStaff Staff { get; set; }
         IDepartment Department { get; set; }
-        IRangeDates Period { get; set; }
+        IPeriodDates Period { get; set; }
     }
 }

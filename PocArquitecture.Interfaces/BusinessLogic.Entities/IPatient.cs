@@ -7,11 +7,6 @@ namespace PocArquitecture.Interfaces.BusinessLogic.Entities
     {
 
         /// <summary>
-        /// Gets or sets the Age
-        /// </summary>
-        int Age { get; set; }
-
-        /// <summary>
         /// Gets or sets the AcceptedDate
         /// </summary>
         DateTime AcceptedDate { get; set; }

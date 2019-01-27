@@ -51,12 +51,12 @@ namespace PocArquitecture.Interfaces.BusinessLogic
     /// this interface must be defined by classes whose result Code is bounded by an Enum and also must return a list of objects
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IResultObjects<X>
+    public interface IResultObjects<X> : IResult
     {
         IList<X> GetItems();
     }
 
-    public interface IResultObject<X>
+    public interface IResultObject<X> : IResult
     {
         X GetItem();
     }

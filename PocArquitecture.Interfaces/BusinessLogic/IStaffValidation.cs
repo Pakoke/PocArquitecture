@@ -4,6 +4,7 @@ namespace PocArquitecture.Interfaces.BusinessLogic
 {
     public interface IStaffValidation
     {
-        void Validate(IStaff person);
+        IResultContainer Validate(IStaff person);
     }
 }
+ 

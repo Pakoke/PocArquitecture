@@ -6,6 +6,6 @@ namespace PocArquitecture.Interfaces.BusinessLogic.Entities
     {
         IPatient Patient { get; set; }
         IOperationsStaff AttendedBy { get; set; }
-        IRangeDates Period { get; set; }
+        IPeriodDates Period { get; set; }
     }
 }

@@ -4,10 +4,7 @@ using System.Text;
 
 namespace PocArquitecture.Interfaces.BusinessLogic.Entities
 {
-    public interface IPeriodDates
+    interface ITechnician : ITechnicalStaff
     {
-        DateTime? From { get; set; }
-        DateTime? To { get; set; }
     }
-
 }
