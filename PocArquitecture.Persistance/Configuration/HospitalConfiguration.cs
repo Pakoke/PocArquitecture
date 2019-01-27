@@ -4,9 +4,9 @@ using PocArquitecture.Interfaces.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class HospitalConfiguration : IEntityTypeConfiguration<IHospital>
+    public class HospitalConfiguration : IEntityTypeConfiguration<IHospitalDto>
     {
-        public void Configure(EntityTypeBuilder<IHospital> builder)
+        public void Configure(EntityTypeBuilder<IHospitalDto> builder)
         {
             builder.ToTable("Hospital");
             builder.HasKey(c => c.Id);

@@ -5,7 +5,7 @@ namespace PocArquitecture.Persistance.Entities
     /// <summary>
     /// Defines the <see cref="Department" />
     /// </summary>
-    public class Department : IDepartment
+    public class Department : IDepartmentDto
     {
         /// <summary>
         /// Gets or sets the DeparmentId

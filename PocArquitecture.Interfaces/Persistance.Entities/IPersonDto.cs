@@ -3,9 +3,9 @@
     using System;
 
     /// <summary>
-    /// Defines the <see cref="IPerson" />
+    /// Defines the <see cref="IPersonDto" />
     /// </summary>
-    public interface IPerson
+    public interface IPersonDto
     {
 
         string Dni { get; set; }

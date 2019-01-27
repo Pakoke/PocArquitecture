@@ -4,9 +4,9 @@ using PocArquitecture.Interfaces.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class StaffConfiguration : IEntityTypeConfiguration<IStaff>
+    public class StaffConfiguration : IEntityTypeConfiguration<IStaffDto>
     {
-        public void Configure(EntityTypeBuilder<IStaff> builder)
+        public void Configure(EntityTypeBuilder<IStaffDto> builder)
         {
             builder.ToTable("Staff");
             builder.HasKey(c => c.StaffId);

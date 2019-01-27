@@ -1,9 +1,9 @@
 ﻿namespace PocArquitecture.Interfaces.Persistance.Entities
 {
     /// <summary>
-    /// Defines the <see cref="IAppConfiguration" />
+    /// Defines the <see cref="IAppConfigurationDto" />
     /// </summary>
-    public interface IAppConfiguration
+    public interface IAppConfigurationDto
     {
         /// <summary>
         /// Gets or sets the ConfigurationId

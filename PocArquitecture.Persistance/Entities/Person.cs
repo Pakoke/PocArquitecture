@@ -6,7 +6,7 @@
     /// <summary>
     /// Defines the <see cref="Person" />
     /// </summary>
-    public class Person : IPerson
+    public class Person : IPersonDto
     {
         public string Dni { get; set; }
 

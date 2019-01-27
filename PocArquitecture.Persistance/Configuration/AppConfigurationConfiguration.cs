@@ -4,9 +4,9 @@ using PocArquitecture.Interfaces.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class AppConfigurationConfiguration : IEntityTypeConfiguration<IAppConfiguration>
+    public class AppConfigurationConfiguration : IEntityTypeConfiguration<IAppConfigurationDto>
     {
-        public void Configure(EntityTypeBuilder<IAppConfiguration> builder)
+        public void Configure(EntityTypeBuilder<IAppConfigurationDto> builder)
         {
             builder.ToTable("AppConfiguration");
             builder.HasKey(c => c.ConfigurationId);

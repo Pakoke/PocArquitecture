@@ -4,9 +4,9 @@ using PocArquitecture.Interfaces.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class PatientConfiguration : IEntityTypeConfiguration<IPatient>
+    public class PatientConfiguration : IEntityTypeConfiguration<IPatientDto>
     {
-        public void Configure(EntityTypeBuilder<IPatient> builder)
+        public void Configure(EntityTypeBuilder<IPatientDto> builder)
         {
             builder.ToTable("Patient");
             builder.HasKey(c => c.Id);

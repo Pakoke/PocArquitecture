@@ -4,9 +4,9 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Defines the <see cref="IPatient" />
+    /// Defines the <see cref="IPatientDto" />
     /// </summary>
-    public interface IPatient
+    public interface IPatientDto
     {
         /// <summary>
         /// Gets or sets the Id
