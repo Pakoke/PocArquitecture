@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PocArquitecture.Interfaces.BusinessLogic.Entities
 {
-    public interface IOperationsStaff 
+    public interface IAdministrativeStaff : IStaff
     {
     }
 }

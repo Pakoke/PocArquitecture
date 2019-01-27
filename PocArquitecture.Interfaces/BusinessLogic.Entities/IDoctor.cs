@@ -1,7 +1,7 @@
 ﻿
 namespace PocArquitecture.Interfaces.BusinessLogic.Entities
 {
-    public interface IDoctor : IStaff
+    public interface IDoctor : IOperationsStaff
     {
         
     }

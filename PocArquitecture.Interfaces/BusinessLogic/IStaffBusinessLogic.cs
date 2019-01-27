@@ -4,15 +4,10 @@ using System.Collections.Generic;
 
 namespace PocArquitecture.Interfaces.BusinessLogic
 {
-    public interface IRangeFilter
-    {
-        DateTime? From { get; set; }
-        DateTime? To { get; set; }
-    }
-
+    
     public interface IStaffFilter
     {
-        IRangeFilter Joined { get; set; }
+        IRangeDates Joined { get; set; }
         string Dni { get; set; }
         IList<string> NamesStaff { get; set; }
     }

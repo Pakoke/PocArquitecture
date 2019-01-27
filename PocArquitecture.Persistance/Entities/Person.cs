@@ -53,6 +53,6 @@
         /// <summary>
         /// Gets or sets the Phone
         /// </summary>
-        public int Phone { get; set; }
+        public string Phone { get; set; }
     }
 }
