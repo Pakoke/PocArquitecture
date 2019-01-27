@@ -4,11 +4,11 @@ using System.Text;
 
 namespace PocArquitecture.Interfaces.BusinessLogic.Entities
 {
-    public interface IDepartment
+    public interface IHospital
     {
-        int Id { get; set; }
-        IHospital Center { get; set; }
         string Name { get; set; }
-        string TypeOfDepartment { get; set; }    
+        string Address { get; set; }
+        string Phone { get; set; }
+        List<IDepartment> Departments { get; set; }
     }
 }
