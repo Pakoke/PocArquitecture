@@ -33,13 +33,8 @@ namespace PocArquitecture.Persistance
             return _objectSet.Find(id);
         }
 
-        public virtual IEnumerable<TEntity> GetAll(Func<TEntity, bool> predicate = null)
+        public virtual IEnumerable<TEntity> GetAll()
         {
-
-            if (predicate != null)
-            {
-                return _objectSet.Where(predicate).ToList();
-            }
             //Add to list, to execute the query inside of the repo.
             return _objectSet.AsEnumerable().ToList();
         }

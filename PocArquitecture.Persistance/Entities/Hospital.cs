@@ -10,7 +10,7 @@
         /// <summary>
         /// Gets or sets the Id
         /// </summary>
-        public int Id { get; set; }
+        public int HospitalId { get; set; }
 
         /// <summary>
         /// Gets or sets the Address

@@ -8,7 +8,7 @@
         /// <summary>
         /// Gets or sets the Id
         /// </summary>
-        int Id { get; set; }
+        int HospitalId { get; set; }
 
         /// <summary>
         /// Gets or sets the Address

@@ -18,7 +18,7 @@
         /// <summary>
         /// Gets or sets the GiveName
         /// </summary>
-        public string GiveName { get; set; }
+        public string GivenName { get; set; }
 
         /// <summary>
         /// Gets or sets the MiddleName

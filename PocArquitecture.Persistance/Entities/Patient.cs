@@ -2,7 +2,6 @@
 {
     using PocArquitecture.Interfaces.Persistance.Entities;
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
     /// Defines the <see cref="Patient" />
@@ -12,7 +11,7 @@
         /// <summary>
         /// Gets or sets the Id
         /// </summary>
-        public int Id { get; set; }
+        public int PatientId { get; set; }
 
         /// <summary>
         /// Gets or sets the Age
@@ -32,16 +31,16 @@
         /// <summary>
         /// Gets or sets the History
         /// </summary>
-        public List<string> History { get; set; }
+        public string History { get; set; }
 
         /// <summary>
         /// Gets or sets the Allergies
         /// </summary>
-        public List<string> Allergies { get; set; }
+        public string Allergies { get; set; }
 
         /// <summary>
         /// Gets or sets the SpecialRequirements
         /// </summary>
-        public List<string> SpecialRequirements { get; set; }
+        public string SpecialRequirements { get; set; }
     }
 }

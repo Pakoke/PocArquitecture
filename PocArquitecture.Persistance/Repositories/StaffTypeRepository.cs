@@ -4,9 +4,9 @@ using PocArquitecture.Persistance.Context;
 
 namespace PocArquitecture.Persistance.Repositories
 {
-    public class PatientRepository : GenericRepository<IPatient>, IPatientRepository
+    public class StaffTypeRepository : GenericRepository<IStaffType>, IStaffTypeRepository
     {
-        public PatientRepository(PocArquitectureContext dbContext) : base(dbContext)
+        public StaffTypeRepository(PocArquitectureContext dbContext) : base(dbContext)
         {
         }
     }

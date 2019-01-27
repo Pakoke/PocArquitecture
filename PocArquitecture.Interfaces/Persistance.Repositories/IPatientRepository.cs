@@ -1,6 +1,8 @@
-﻿namespace PocArquitecture.Interfaces.Persistance.Repositories
+﻿using PocArquitecture.Interfaces.Persistance.Entities;
+
+namespace PocArquitecture.Interfaces.Persistance.Repositories
 {
-    interface IPatientRepository
+    public interface IPatientRepository : IGenericRepository<IPatient>
     {
     }
 }

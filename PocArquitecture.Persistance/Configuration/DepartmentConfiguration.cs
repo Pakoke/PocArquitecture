@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PocArquitecture.Interfaces.Persistance.Entities;
+using PocArquitecture.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class DepartmentConfiguration : IEntityTypeConfiguration<IDepartment>
+    public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
     {
-        public void Configure(EntityTypeBuilder<IDepartment> builder)
+        public void Configure(EntityTypeBuilder<Department> builder)
         {
             builder.ToTable("Department");
             builder.HasKey(c => new { c.DeparmentId, c.HostpitalId });

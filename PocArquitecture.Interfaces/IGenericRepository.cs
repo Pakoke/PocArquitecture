@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PocArquitecture.Interfaces
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        IEnumerable<TEntity> GetAll(Func<TEntity, bool> predicate = null);
+        IEnumerable<TEntity> GetAll();
 
         TEntity GetById(string id);
 

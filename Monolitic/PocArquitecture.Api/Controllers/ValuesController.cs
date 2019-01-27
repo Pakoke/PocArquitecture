@@ -1,6 +1,7 @@
 ﻿namespace PocArquitecture.Api.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using PocArquitecture.Interfaces.Persistance.Repositories;
     using System.Collections.Generic;
 
     /// <summary>
@@ -10,6 +11,12 @@
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        readonly IAppConfigurationRepository appConfigurationRepository;
+
+        public ValuesController(IAppConfigurationRepository appConfigurationRepository)
+        {
+            this.appConfigurationRepository = appConfigurationRepository;
+        }
         // 
         /// <summary>
         /// GET api/values
@@ -18,7 +25,9 @@
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result = appConfigurationRepository.GetAll();
+
+            return Ok(result);
         }
 
         // 

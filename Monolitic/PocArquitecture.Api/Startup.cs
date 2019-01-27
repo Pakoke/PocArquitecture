@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PocArquitecture.Interfaces;
+using PocArquitecture.Interfaces.Persistance.Repositories;
+using PocArquitecture.Persistance;
 using PocArquitecture.Persistance.Context;
+using PocArquitecture.Persistance.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
@@ -57,7 +61,24 @@ namespace PocArquitecture.Api
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
                 );
 
+            ConfigureRepositoryServices(services);
 
+        }
+
+
+        private void ConfigureRepositoryServices(IServiceCollection services)
+        {
+            // Add Repositories.
+            services.AddTransient<IAppConfigurationRepository, AppConfigurationRepository>();
+            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+            services.AddTransient<IHospitalRepository, HospitalRepository>();
+            services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<IStaffRepository, StaffRepository>();
+            services.AddTransient<IStaffTypeRepository, StaffTypeRepository>();
+            services.AddTransient<IPatientRepository, PatientRepository>();
+
+            //GenericUoW
+            services.AddTransient<IGenericUoW, GenericUoW>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,7 +2,7 @@
 
 namespace PocArquitecture.Interfaces.Persistance.Repositories
 {
-    public interface IDepartmentRepository : IGenericRepository<IDepartment>
+    public interface IStaffRepository : IGenericRepository<IStaff>
     {
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace PocArquitecture.Interfaces.Persistance.Entities
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
     /// Defines the <see cref="IStaff" />
@@ -26,17 +25,17 @@
         /// <summary>
         /// Gets or sets the Education
         /// </summary>
-        List<string> Education { get; set; }
+        string Education { get; set; }
 
         /// <summary>
         /// Gets or sets the Certification
         /// </summary>
-        List<string> Certification { get; set; }
+        string Certification { get; set; }
 
         /// <summary>
         /// Gets or sets the Languages
         /// </summary>
-        List<string> Languages { get; set; }
+        string Languages { get; set; }
 
         /// <summary>
         /// Gets or sets the TypeStaffId

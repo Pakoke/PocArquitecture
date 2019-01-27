@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PocArquitecture.Interfaces.Persistance.Entities;
+using PocArquitecture.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class StaffConfiguration : IEntityTypeConfiguration<IStaff>
+    public class StaffConfiguration : IEntityTypeConfiguration<Staff>
     {
-        public void Configure(EntityTypeBuilder<IStaff> builder)
+        public void Configure(EntityTypeBuilder<Staff> builder)
         {
             builder.ToTable("Staff");
             builder.HasKey(c => c.StaffId);
