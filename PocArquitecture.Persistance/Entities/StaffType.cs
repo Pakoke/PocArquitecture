@@ -1,9 +1,11 @@
-﻿namespace PocArquitecture.Persistance.Entities
+﻿using PocArquitecture.Interfaces.Persistance.Entities;
+
+namespace PocArquitecture.Persistance.Entities
 {
     /// <summary>
     /// Defines the <see cref="StaffType" />
     /// </summary>
-    public class StaffType
+    public class StaffType : IStaffType
     {
         /// <summary>
         /// Gets or sets the StaffTypeId

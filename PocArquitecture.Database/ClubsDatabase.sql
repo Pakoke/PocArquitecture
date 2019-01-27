@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS `endgamedb`.`Clubs`;
+DROP TABLE IF EXISTS `pocarquitecturedb`.`Clubs`;
 
-CREATE TABLE `endgamedb`.`Clubs` (
+CREATE TABLE `pocarquitecturedb`.`Clubs` (
   `ClubId` int(11) NOT NULL,
   `ClubName` varchar(45) NOT NULL,
   `Location` varchar(200) DEFAULT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `endgamedb`.`Clubs` (
 );
 
 
-INSERT INTO `endgamedb`.`Clubs`
+INSERT INTO `pocarquitecturedb`.`Clubs`
 (`ClubId`,
 `ClubName`,
 `Location`,

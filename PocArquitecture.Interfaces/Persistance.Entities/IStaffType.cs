@@ -5,5 +5,10 @@
     /// </summary>
     public interface IStaffType
     {
+        int StaffTypeId { get; set; }
+
+        string NameStaff { get; set; }
+
+        string DescriptionStaff { get; set; }
     }
 }

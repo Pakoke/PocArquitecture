@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PocArquitecture.Interfaces.Persistance.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PocArquitecture.Persistance.Configuration
 {
@@ -11,7 +8,10 @@ namespace PocArquitecture.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<IStaffType> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("StaffType");
+            builder.HasKey(c => c.StaffTypeId);
+            builder.Property(c => c.NameStaff).IsRequired().HasMaxLength(45);
+            builder.Property(c => c.DescriptionStaff).IsRequired().HasMaxLength(100);
         }
     }
 }
