@@ -1,6 +1,6 @@
 ﻿using PocArquitecture.Interfaces.Persistance.Entities;
+using PocArquitecture.Interfaces.Persistance.Repositories;
 using PocArquitecture.Persistance.Context;
-using PocArquitecture.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Repositories
 {
