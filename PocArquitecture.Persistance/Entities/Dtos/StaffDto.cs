@@ -17,6 +17,9 @@
         /// </summary>
         public int StaffId { get; set; }
 
+
+        public int PersonId { get; set; }
+
         /// <summary>
         /// Gets or sets the Joined
         /// </summary>

@@ -53,6 +53,7 @@ DROP TABLE IF EXISTS `pocarquitecturedb`.`Patient`;
 
 CREATE TABLE `pocarquitecturedb`.`Patient` (
   `PatiendId` INT NOT NULL,
+  `PersonId` INT NOT NULL,
   `AcceptedDate` DATETIME NULL,
   `Age` INT NULL,
   `History` VARCHAR(45) NULL,
@@ -60,6 +61,16 @@ CREATE TABLE `pocarquitecturedb`.`Patient` (
   `SpecialRequirements` VARCHAR(45) NULL,
   `Allergies` VARCHAR(45) NULL,
   PRIMARY KEY (`PatiendId`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = ascii;
+
+DROP TABLE IF EXISTS `pocarquitecturedb`.`Department`;
+
+CREATE TABLE `pocarquitecturedb`.`Department` (
+  `DepartmentId` INT NOT NULL,
+  `TypeOfDepartment` VARCHAR(45) NULL,
+  `HostpitalId` INT NULL,
+  PRIMARY KEY (`DepartmentId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = ascii;
 

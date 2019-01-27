@@ -15,7 +15,7 @@ namespace PocArquitecture.Persistance.Configuration
             builder.Property(c => c.Education).IsRequired().HasMaxLength(10);
             builder.Property(c => c.Joined).IsRequired().HasMaxLength(50);
             builder.Property(c => c.Languages).IsRequired().HasMaxLength(50);
-
+            builder.Property(c => c.PersonId).IsRequired();
         }
     }
 }

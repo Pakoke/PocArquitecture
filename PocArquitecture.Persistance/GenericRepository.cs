@@ -23,14 +23,18 @@
         /// </summary>
         protected DbSet<TEntity> _objectSet;
 
+
+        private bool Cacheable;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GenericRepository{TEntity}"/> class.
         /// </summary>
         /// <param name="dbContext">The dbContext<see cref="PocArquitectureContext"/></param>
-        public GenericRepository(PocArquitectureContext dbContext)
+        public GenericRepository(PocArquitectureContext dbContext, bool cacheable = false)
         {
             DbContext = dbContext;
             _objectSet = DbContext.Set<TEntity>();
+            this.Cacheable = cacheable;
         }
 
         /// <summary>

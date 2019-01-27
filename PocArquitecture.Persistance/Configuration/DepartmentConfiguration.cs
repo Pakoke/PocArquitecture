@@ -9,8 +9,10 @@ namespace PocArquitecture.Persistance.Configuration
         public void Configure(EntityTypeBuilder<DepartmentDto> builder)
         {
             builder.ToTable("Department");
-            builder.HasKey(c => new { c.DeparmentId, c.HostpitalId });
+
+            builder.HasKey(c => new { c.DeparmentId });
             builder.Property(c => c.TypeOfDepartment).IsRequired().HasMaxLength(45);
+            builder.Property(c => c.HostpitalId).IsRequired();
 
         }
     }
