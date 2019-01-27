@@ -1,12 +1,12 @@
-﻿using PocArquitecture.Persistance.Context;
-using Microsoft.EntityFrameworkCore.Storage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using PocArquitecture.Interfaces;
-
-namespace PocArquitecture.Persistance
+﻿namespace PocArquitecture.Persistance
 {
+    using Microsoft.EntityFrameworkCore.Storage;
+    using PocArquitecture.Interfaces;
+    using PocArquitecture.Persistance.Context;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class GenericUoW : IGenericUoW
     {
         public Dictionary<Type, object> repositories = new Dictionary<Type, object>();

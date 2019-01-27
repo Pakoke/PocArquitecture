@@ -4,9 +4,9 @@ using PocArquitecture.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
+    public class DepartmentConfiguration : IEntityTypeConfiguration<DepartmentDto>
     {
-        public void Configure(EntityTypeBuilder<Department> builder)
+        public void Configure(EntityTypeBuilder<DepartmentDto> builder)
         {
             builder.ToTable("Department");
             builder.HasKey(c => new { c.DeparmentId, c.HostpitalId });

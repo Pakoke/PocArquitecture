@@ -4,9 +4,9 @@ using PocArquitecture.Persistance.Entities;
 
 namespace PocArquitecture.Persistance.Configuration
 {
-    public class PersonConfiguration : IEntityTypeConfiguration<Person>
+    public class PersonConfiguration : IEntityTypeConfiguration<PersonDto>
     {
-        public void Configure(EntityTypeBuilder<Person> builder)
+        public void Configure(EntityTypeBuilder<PersonDto> builder)
         {
             builder.ToTable("Person");
             builder.HasKey(c => c.Dni);
