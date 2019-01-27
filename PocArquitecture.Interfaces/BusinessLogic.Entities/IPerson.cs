@@ -1,13 +1,9 @@
-﻿namespace PocArquitecture.Interfaces.Persistance.Entities
-{
-    using System;
+﻿using System;
 
-    /// <summary>
-    /// Defines the <see cref="IPerson" />
-    /// </summary>
+namespace PocArquitecture.Interfaces.BusinessLogic.Entities
+{
     public interface IPerson
     {
-
         string Dni { get; set; }
         /// <summary>
         /// Gets or sets the Title
@@ -17,7 +13,7 @@
         /// <summary>
         /// Gets or sets the GiveName
         /// </summary>
-        string GivenName { get; set; }
+        string GiveName { get; set; }
 
         /// <summary>
         /// Gets or sets the MiddleName
@@ -52,6 +48,6 @@
         /// <summary>
         /// Gets or sets the Phone
         /// </summary>
-        int Phone { get; set; }
+        string Phone { get; set; }
     }
 }

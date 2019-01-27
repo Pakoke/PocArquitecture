@@ -4,7 +4,7 @@ using PocArquitecture.Persistance.Context;
 
 namespace PocArquitecture.Persistance.Repositories
 {
-    public class AppConfigurationRepository : GenericRepository<IAppConfiguration>, IAppConfigurationRepository
+    public class AppConfigurationRepository : GenericRepository<IAppConfigurationDto>, IAppConfigurationRepository
     {
         public AppConfigurationRepository(PocArquitectureContext dbContext) : base(dbContext)
         {

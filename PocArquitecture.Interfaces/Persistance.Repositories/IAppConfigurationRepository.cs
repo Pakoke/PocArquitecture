@@ -2,7 +2,7 @@
 
 namespace PocArquitecture.Interfaces.Persistance.Repositories
 {
-    public interface IAppConfigurationRepository : IGenericRepository<IAppConfiguration>
+    public interface IAppConfigurationRepository : IGenericRepository<IAppConfigurationDto>
     {
     }
 }

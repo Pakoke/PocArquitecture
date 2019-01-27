@@ -1,9 +1,9 @@
 ﻿namespace PocArquitecture.Interfaces.Persistance.Entities
 {
     /// <summary>
-    /// Defines the <see cref="IDepartment" />
+    /// Defines the <see cref="IDepartmentDto" />
     /// </summary>
-    public interface IDepartment
+    public interface IDepartmentDto
     {
         /// <summary>
         /// Gets or sets the DeparmentId

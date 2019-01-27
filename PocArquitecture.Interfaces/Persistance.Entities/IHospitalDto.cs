@@ -1,9 +1,9 @@
 ﻿namespace PocArquitecture.Interfaces.Persistance.Entities
 {
     /// <summary>
-    /// Defines the <see cref="IHospital" />
+    /// Defines the <see cref="IHospitalDto" />
     /// </summary>
-    public interface IHospital
+    public interface IHospitalDto
     {
         /// <summary>
         /// Gets or sets the Id

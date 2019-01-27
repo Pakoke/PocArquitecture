@@ -1,58 +1,57 @@
-﻿namespace PocArquitecture.Persistance.Entities
+﻿namespace PocArquitecture.Interfaces.Persistance.Entities
 {
-    using PocArquitecture.Interfaces.Persistance.Entities;
     using System;
 
     /// <summary>
-    /// Defines the <see cref="Person" />
+    /// Defines the <see cref="IPersonDto" />
     /// </summary>
-    public class Person : IPersonDto
+    public interface IPersonDto
     {
-        public string Dni { get; set; }
 
+        string Dni { get; set; }
         /// <summary>
         /// Gets or sets the Title
         /// </summary>
-        public string Title { get; set; }
+        string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the GiveName
         /// </summary>
-        public string GivenName { get; set; }
+        string GivenName { get; set; }
 
         /// <summary>
         /// Gets or sets the MiddleName
         /// </summary>
-        public string MiddleName { get; set; }
+        string MiddleName { get; set; }
 
         /// <summary>
         /// Gets or sets the FamilyName
         /// </summary>
-        public string FamilyName { get; set; }
+        string FamilyName { get; set; }
 
         /// <summary>
         /// Gets or sets the Name
         /// </summary>
-        public string Name { get; set; }
+        string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the BirthDate
         /// </summary>
-        public DateTime BirthDate { get; set; }
+        DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Gets or sets the Gender
         /// </summary>
-        public string Gender { get; set; }
+        string Gender { get; set; }
 
         /// <summary>
         /// Gets or sets the HomeAdress
         /// </summary>
-        public string HomeAdress { get; set; }
+        string HomeAdress { get; set; }
 
         /// <summary>
         /// Gets or sets the Phone
         /// </summary>
-        public string Phone { get; set; }
+        string Phone { get; set; }
     }
 }

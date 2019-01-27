@@ -3,9 +3,9 @@
     using System;
 
     /// <summary>
-    /// Defines the <see cref="IStaff" />
+    /// Defines the <see cref="IStaffDto" />
     /// </summary>
-    public interface IStaff
+    public interface IStaffDto
     {
         /// <summary>
         /// Gets or sets the DeparmentId

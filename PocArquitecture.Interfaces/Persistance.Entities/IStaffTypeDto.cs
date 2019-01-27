@@ -1,9 +1,9 @@
 ﻿namespace PocArquitecture.Interfaces.Persistance.Entities
 {
     /// <summary>
-    /// Defines the <see cref="IStaffType" />
+    /// Defines the <see cref="IStaffTypeDto" />
     /// </summary>
-    public interface IStaffType
+    public interface IStaffTypeDto
     {
         int StaffTypeId { get; set; }
 

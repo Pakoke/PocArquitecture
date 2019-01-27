@@ -6,7 +6,7 @@
     /// <summary>
     /// Defines the <see cref="Patient" />
     /// </summary>
-    public class Patient : IPatient
+    public class Patient : IPatientDto
     {
         /// <summary>
         /// Gets or sets the Id

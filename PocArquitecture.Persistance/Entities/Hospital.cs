@@ -5,7 +5,7 @@
     /// <summary>
     /// Defines the <see cref="Hospital" />
     /// </summary>
-    public class Hospital : IHospital
+    public class Hospital : IHospitalDto
     {
         /// <summary>
         /// Gets or sets the Id
