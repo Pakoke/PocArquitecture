@@ -1,20 +1,21 @@
 ﻿using PocArquitecture.BusinessLogic.Common;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
+using PocArquitecture.Interfaces.BussinesLogic.Repositories;
 using System.Collections.Generic;
 
 namespace PocArquitecture.BusinessLogic.Staff.Validations
 {
     public class DoctorValidate : ValidationDecoratorTemplate
     {
-        IStaffRepository _staffRepository;
+        IStaffBusinessRepository _staffRepository;
 
 
-        public DoctorValidate(IStaffRepository staffRepository, IStaffValidation next = null) : base(next)
+        public DoctorValidate(IStaffBusinessRepository staffRepository, IStaffValidation next = null) : base(next)
         {
             _staffRepository = staffRepository;
         }
-        
+
         protected override IList<IResult> ValidateTemplate(IStaff person)
         {
             if (person is IDoctor)

@@ -1,5 +1,6 @@
 ﻿namespace PocArquitecture.Interfaces
 {
+    using PocArquitecture.Interfaces.BusinessLogic;
     using System;
 
     /// <summary>
@@ -17,6 +18,6 @@
         /// <summary>
         /// The SaveChanges
         /// </summary>
-        void SaveChanges();
+        IResult SaveChanges();
     }
 }

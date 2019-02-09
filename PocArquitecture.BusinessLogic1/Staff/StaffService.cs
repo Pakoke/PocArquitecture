@@ -1,33 +1,21 @@
 ﻿using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
+using PocArquitecture.Interfaces.BussinesLogic.Repositories;
 using System;
 
 namespace PocArquitecture.BusinessLogic.Staff
 {
-    public interface IStaffRepository
-    {
-        IResult Save(IStaff staff);
-
-
-        IResultObjects<ILaboralHistory> GetLaboralHistory(IPersonFilter filter);
-    }
-
-    public interface IHospitalRepository
-    {
-        IResultObject<IDepartment> GetDepartmentInThisHospital(string codeHospital, string codeDepartment);
-    }
-
     public class StaffService : IStaffBusinessLogic
     {
         readonly IStaffValidation _validator;
-        readonly IStaffRepository _staffRepository;
-        readonly IHospitalRepository _hospitalRepository;
+        readonly IStaffBusinessRepository _staffRepository;
+        readonly IHospitalBusinessRepository _hospitalBusinessRepository;
 
-        public StaffService(IStaffValidation validator, IStaffRepository staffRepository, IHospitalRepository hospitalRepository)
+        public StaffService(IStaffValidation validator, IStaffBusinessRepository staffRepository, IHospitalBusinessRepository hospitalBusinessRepository)
         {
             _validator = validator;
             _staffRepository = staffRepository;
-            _hospitalRepository = hospitalRepository;
+            _hospitalBusinessRepository = hospitalBusinessRepository;
         }
 
         /// <summary>
@@ -39,7 +27,7 @@ namespace PocArquitecture.BusinessLogic.Staff
         /// <returns></returns>
         public IResult AddStaffInHospital(IStaff person, string codeHospital, string codeDepartment)
         {
-            var resDepartment = _hospitalRepository.GetDepartmentInThisHospital(codeHospital, codeDepartment);
+            var resDepartment = _hospitalBusinessRepository.GetDepartmentInThisHospital(codeHospital, codeDepartment);
             if (!resDepartment.ComputeResult().IsOk())
                 return resDepartment;
 
