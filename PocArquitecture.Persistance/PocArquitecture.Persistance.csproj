@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PocArquitecture.BusinessLogic1\PocArquitecture.BusinessLogic.csproj" />
     <ProjectReference Include="..\PocArquitecture.Interfaces\PocArquitecture.Interfaces.csproj" />
   </ItemGroup>
 

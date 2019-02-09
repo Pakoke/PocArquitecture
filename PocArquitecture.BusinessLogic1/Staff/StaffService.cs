@@ -1,21 +1,10 @@
 ﻿using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
+using PocArquitecture.Interfaces.Repository;
 using System;
 
 namespace PocArquitecture.BusinessLogic.Staff
 {
-    public interface IStaffRepository
-    {
-        IResult Save(IStaff staff);
-
-
-        IResultObjects<ILaboralHistory> GetLaboralHistory(IPersonFilter filter);
-    }
-
-    public interface IHospitalRepository
-    {
-        IResultObject<IDepartment> GetDepartmentInThisHospital(string codeHospital, string codeDepartment);
-    }
 
     public class StaffService : IStaffBusinessLogic
     {

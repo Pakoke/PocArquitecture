@@ -36,8 +36,4 @@ namespace PocArquitecture.BusinessLogic.Staff.Validations
 
     }
 
-
-   
-
-
 }
