@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PocArquitecture.BusinessLogic.Staff;
+using PocArquitecture.BusinessLogic.Staff.Validations;
 using PocArquitecture.Interfaces;
+using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.Persistance.Repositories;
 using PocArquitecture.Persistance;
 using PocArquitecture.Persistance.Context;
@@ -80,7 +83,10 @@ namespace PocArquitecture.Api
             //GenericUoW
             services.AddTransient<IGenericUoW, GenericUoW>();
 
-
+            services.AddTransient<IStaffBusinessLogic, StaffService>();
+            services.AddTransient<IStaffValidation, StaffValidate>();
+            services.AddTransient<Interfaces.Repository.IStaffRepository, StaffRepositoryHL>();
+            services.AddTransient<Interfaces.Repository.IHospitalRepository,HospitalRepositoryHL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
