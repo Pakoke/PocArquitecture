@@ -8,8 +8,10 @@ using PocArquitecture.BusinessLogic.Staff;
 using PocArquitecture.BusinessLogic.Staff.Validations;
 using PocArquitecture.Interfaces;
 using PocArquitecture.Interfaces.BusinessLogic;
+using PocArquitecture.Interfaces.BussinesLogic.Repositories;
 using PocArquitecture.Interfaces.Persistance.Repositories;
 using PocArquitecture.Persistance;
+using PocArquitecture.Persistance.BusinessRepositories;
 using PocArquitecture.Persistance.Context;
 using PocArquitecture.Persistance.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
@@ -83,10 +85,12 @@ namespace PocArquitecture.Api
             //GenericUoW
             services.AddTransient<IGenericUoW, GenericUoW>();
 
-            services.AddTransient<IStaffBusinessLogic, StaffService>();
+            services.AddTransient<IStaffBusinessLogic, StaffBusinessLogic>();
             services.AddTransient<IStaffValidation, StaffValidate>();
-            services.AddTransient<Interfaces.Repository.IStaffRepository, StaffRepositoryHL>();
-            services.AddTransient<Interfaces.Repository.IHospitalRepository,HospitalRepositoryHL>();
+            services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
+            //services.AddTransient<IHospitalBusinessRepository, HospitalRepositoryHL>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

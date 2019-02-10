@@ -1,21 +1,22 @@
-﻿using PocArquitecture.Interfaces.BusinessLogic;
+﻿using PocArquitecture.BusinessLogic.Common;
+using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.BussinesLogic.Repositories;
 using System;
 
 namespace PocArquitecture.BusinessLogic.Staff
 {
-    public class StaffService : IStaffBusinessLogic
+    public class StaffBusinessLogic : IStaffBusinessLogic
     {
         readonly IStaffValidation _validator;
         readonly IStaffBusinessRepository _staffRepository;
-        readonly IHospitalBusinessRepository _hospitalBusinessRepository;
+        //readonly IHospitalBusinessRepository _hospitalBusinessRepository;
 
-        public StaffService(IStaffValidation validator, IStaffBusinessRepository staffRepository, IHospitalBusinessRepository hospitalBusinessRepository)
+        public StaffBusinessLogic(IStaffValidation validator, IStaffBusinessRepository staffRepository/*, IHospitalBusinessRepository hospitalBusinessRepository*/)
         {
             _validator = validator;
             _staffRepository = staffRepository;
-            _hospitalBusinessRepository = hospitalBusinessRepository;
+            //  _hospitalBusinessRepository = hospitalBusinessRepository;
         }
 
         /// <summary>
@@ -27,21 +28,30 @@ namespace PocArquitecture.BusinessLogic.Staff
         /// <returns></returns>
         public IResult AddStaffInHospital(IStaff person, string codeHospital, string codeDepartment)
         {
-            var resDepartment = _hospitalBusinessRepository.GetDepartmentInThisHospital(codeHospital, codeDepartment);
-            if (!resDepartment.ComputeResult().IsOk())
-                return resDepartment;
+            //var resDepartment = _hospitalBusinessRepository.GetDepartmentInThisHospital(codeHospital, codeDepartment);
+            //if (!resDepartment.ComputeResult().IsOk())
+            //    return resDepartment;
 
-            IResult resultValidations = _validator.Validate(person);
+            //IResult resultValidations = _validator.Validate(person);
 
-            if (!resultValidations.ComputeResult().IsOk())
+            //if (!resultValidations.ComputeResult().IsOk())
+            //{
+            //    return resultValidations;
+            //}
+
+            //person.Department = resDepartment.GetItem();
+
+            try
             {
-                return resultValidations;
+                _staffRepository.Save(person);
+
+            }
+            catch (Exception e)
+            {
+                return new ResultBusinessLogic(EnumResultBL.ERROR_DEPARTMENT_REQUIRED);
             }
 
-            person.Department = resDepartment.GetItem();
-
-            IResult resultSave = _staffRepository.Save(person);
-            return resultSave;
+            return new ResultBusinessLogic(EnumResultBL.OK);
         }
 
         /// <summary>
@@ -58,8 +68,16 @@ namespace PocArquitecture.BusinessLogic.Staff
                 return resultValidations;
             }
 
-            IResult resultSave = _staffRepository.Save(person);
-            return resultSave;
+            try
+            {
+                _staffRepository.Save(person);
+
+            }
+            catch (Exception e)
+            {
+                return new ResultBusinessLogic(EnumResultBL.ERROR_DEPARTMENT_REQUIRED);
+            }
+            return new ResultBusinessLogic(EnumResultBL.OK);
         }
 
         /// <summary>

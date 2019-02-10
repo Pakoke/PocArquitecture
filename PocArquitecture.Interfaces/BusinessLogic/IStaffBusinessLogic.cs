@@ -1,5 +1,4 @@
 ﻿using PocArquitecture.Interfaces.BusinessLogic.Entities;
-using System.Collections.Generic;
 
 namespace PocArquitecture.Interfaces.BusinessLogic
 {

@@ -5,7 +5,7 @@ namespace PocArquitecture.Interfaces.BussinesLogic.Repositories
 {
     public interface IStaffBusinessRepository
     {
-        IResult Save(IStaff staff);
+        void Save(IStaff staff);
 
         IResultObjects<ILaboralHistory> GetLaboralHistory(IPersonFilter filter);
     }

@@ -19,7 +19,7 @@ namespace PocArquitecture.BusinessLogic.Common
 
         [Description("Medical speciality of the doctor doesn´t match with speciality  of the Department")]
         ERROR_SPECIALITY_DEPARTMENT_MATCH_WITH_THE_DOCTOR_ONE
-        
+
 
     }
 
@@ -30,7 +30,14 @@ namespace PocArquitecture.BusinessLogic.Common
 
         public ResultValidation() : base(EnumResultBL.OK, EnumResultBL.OK.GetDescription())
         { }
+    }
 
-       
+    public class ResultBusinessLogic : AbstractResult<EnumResultBL>
+    {
+        public ResultBusinessLogic(EnumResultBL x, params object[] para) : base(x, x.GetDescription(), para)
+        { }
+
+        public ResultBusinessLogic() : base(EnumResultBL.OK, EnumResultBL.OK.GetDescription())
+        { }
     }
 }

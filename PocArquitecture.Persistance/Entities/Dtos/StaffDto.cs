@@ -17,8 +17,10 @@
         /// </summary>
         public int StaffId { get; set; }
 
-
-        public int PersonId { get; set; }
+        /// <summary>
+        /// Gets or sets the PersonId
+        /// </summary>
+        public string PersonId { get; set; }
 
         /// <summary>
         /// Gets or sets the Joined
@@ -44,7 +46,5 @@
         /// Gets or sets the TypeStaffId
         /// </summary>
         public int TypeStaffId { get; set; }
-
-
     }
 }

@@ -2,7 +2,6 @@
 {
     using Microsoft.EntityFrameworkCore.Storage;
     using PocArquitecture.Interfaces;
-    using PocArquitecture.Interfaces.BusinessLogic;
     using PocArquitecture.Persistance.Context;
     using System;
     using System.Collections.Generic;
@@ -76,7 +75,7 @@
 
 
 
-        public IResult SaveChanges()
+        public void SaveChanges()
         {
 
 
@@ -95,7 +94,7 @@
                     this.transaction.Dispose();
                 }
 
-                return null;
+                return;
             }
             catch (Exception e)
             {

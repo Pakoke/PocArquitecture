@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PocArquitecture.Entities\PocArquitecture.Entities.csproj" />
+    <ProjectReference Include="..\PocArquitecture.Interfaces\PocArquitecture.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
