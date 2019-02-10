@@ -91,7 +91,7 @@ namespace PocArquitecture.Interfaces.Common
 
         public EResult ComputeResult()
         {
-            if (ResultDetails == null || !ResultDetails.Any(x => !x.ComputeResult().IsError()))
+            if (ResultDetails == null || !ResultDetails.Any(x => x.ComputeResult().IsError()))
             {
                 return EResult.OK;
             }
@@ -157,6 +157,10 @@ namespace PocArquitecture.Interfaces.Common
             SetItem(oItem);
         }
 
+        public AbstractResultObject(T x, string messag, params object[] detail) : base(x, messag, detail)
+        {
+        }
+
     }
 
     /// <summary>
@@ -183,6 +187,10 @@ namespace PocArquitecture.Interfaces.Common
         public AbstractResultObjects(T x, IList<X> oItems, string messag, params object[] detail) : base(x, messag, detail)
         {
             SetItems(oItems);
+        }
+
+        public AbstractResultObjects(T x, string messag, params object[] detail) : base(x, messag, detail)
+        {
         }
 
     }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PocArquitecture.BusinessLogic.Staff;
+using PocArquitecture.BusinessLogic.Staff.Validations;
 using PocArquitecture.Interfaces;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BussinesLogic.Repositories;
@@ -85,14 +86,24 @@ namespace PocArquitecture.Api
 
             //GenericUoW
             services.AddTransient<IGenericUoW, GenericUoW>();
-
-            //Generate Circular reference
-            //services.AddTransient<IStaffValidation, StaffValidate>();
-            services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
             services.AddTransient<IStaffBusinessLogic, StaffBusinessLogic>();
+            services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
+            services.AddTransient<IHospitalBusinessRepository, HospitalBusinessRepository>();
+
+
+            services.AddTransient<IStaffValidationAdd>(sp => new StaffValidationAdd(
+                                                                 new StaffAsPersonValidate(
+                                                                 new DoctorValidate(sp.GetService<IStaffBusinessRepository>(),
+                                                                 new StaffValidate()
+                                                       ))));
+
+            services.AddTransient<IStaffValidationUpdate>(sp => new StaffValidationUpdate(
+                                                                    new StaffAsPersonValidate(
+                                                                    new DoctorValidate(sp.GetService<IStaffBusinessRepository>(),
+                                                                    new StaffValidate()
+                                                          ))));
 
             //services.AddTransient<IHospitalBusinessRepository, HospitalRepositoryHL>();
-
 
         }
 

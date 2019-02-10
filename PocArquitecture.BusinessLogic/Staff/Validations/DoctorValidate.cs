@@ -1,7 +1,9 @@
 ﻿using PocArquitecture.BusinessLogic.Common;
+using PocArquitecture.Entities.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.BussinesLogic.Repositories;
+using System;
 using System.Collections.Generic;
 
 namespace PocArquitecture.BusinessLogic.Staff.Validations
@@ -18,11 +20,12 @@ namespace PocArquitecture.BusinessLogic.Staff.Validations
 
         protected override IList<IResult> ValidateTemplate(IStaff person)
         {
+            IList<IResult> list = new List<IResult>();
             if (person is IDoctor)
             {
 
                 var idoctor = (IDoctor)person;
-                IList<IResult> list = new List<IResult>();
+                
 
                 if (idoctor.NumOfYearsBlaBla < 10)
                     list.Add(new ResultValidation(EnumResultBL.ERROR_NUM_OF_YEARS_REQUIRED));
@@ -31,11 +34,12 @@ namespace PocArquitecture.BusinessLogic.Staff.Validations
                     list.Add(new ResultValidation(EnumResultBL.ERROR_SPECIALITY_DEPARTMENT_MATCH_WITH_THE_DOCTOR_ONE));
 
                 //create a filter with dni. and check if the doctor is working in other hospital currently
-                var resultLH = _staffRepository.GetLaboralHistory(null);
-                //list.Add(new ResultValidation(EnumResultBL.ERROR_SPECIALITY_DEPARTMENT_MATCH_WITH_THE_DOCTOR_ONE));
 
+                //PersonFilter filter = new PersonFilter() { Dni = person.Dni};
+                //var resultLH = _staffRepository.GetLaboralHistory(null);
+                //   list.Add(new ResultValidation(EnumResultBL.ERROR_SPECIALITY_DEPARTMENT_MATCH_WITH_THE_DOCTOR_ONE));
             }
-            return null;
+            return list;
         }
     }
 }

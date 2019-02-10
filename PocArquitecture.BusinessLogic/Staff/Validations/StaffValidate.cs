@@ -18,7 +18,7 @@ namespace PocArquitecture.BusinessLogic.Staff.Validations
         {
             IList<IResult> list = new List<IResult>();
 
-            if (person.Department == null || person.Department.Id == 0)
+            if (person.Department == null || person.Department.DeparmentId == 0)
                 list.Add(new ResultValidation(EnumResultBL.ERROR_DEPARTMENT_REQUIRED));
 
             return list;

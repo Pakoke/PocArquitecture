@@ -21,7 +21,7 @@ namespace PocArquitecture.BusinessLogic.Staff.Validations
             if (string.IsNullOrWhiteSpace(person.Dni))
                 list.Add(new ResultValidation(EnumResultBL.ERROR_DNI_REQUIRED));
 
-            return null;
+            return list;
         }
     }
 }
