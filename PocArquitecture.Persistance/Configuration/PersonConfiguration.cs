@@ -14,7 +14,7 @@ namespace PocArquitecture.Persistance.Configuration
             builder.Property(c => c.FamilyName).HasMaxLength(100);
             builder.Property(c => c.Gender).IsRequired().HasMaxLength(10);
             builder.Property(c => c.GivenName).HasMaxLength(50);
-            builder.Property(c => c.HomeAdress).HasMaxLength(50);
+            builder.Property(c => c.HomeAddress).HasMaxLength(50);
             builder.Property(c => c.MiddleName).HasMaxLength(50);
             builder.Property(c => c.Name).IsRequired().HasMaxLength(50);
             builder.Property(c => c.Phone).HasMaxLength(15);

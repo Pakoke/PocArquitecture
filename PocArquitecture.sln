@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocArquitecture.BusinessLogic", "PocArquitecture.BusinessLogic\PocArquitecture.BusinessLogic.csproj", "{E04597E8-F9FD-4EF6-9490-F4911194998A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocArquitecture.Persistance.Test", "PocArquitecture.Persistance.Test\PocArquitecture.Persistance.Test.csproj", "{56184146-020B-41A8-87EE-F1F84940E6FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{E04597E8-F9FD-4EF6-9490-F4911194998A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E04597E8-F9FD-4EF6-9490-F4911194998A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E04597E8-F9FD-4EF6-9490-F4911194998A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56184146-020B-41A8-87EE-F1F84940E6FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56184146-020B-41A8-87EE-F1F84940E6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56184146-020B-41A8-87EE-F1F84940E6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56184146-020B-41A8-87EE-F1F84940E6FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

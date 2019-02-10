@@ -28,6 +28,11 @@
         public DateTime Joined { get; set; }
 
         /// <summary>
+        /// Gets or sets the MovedFired
+        /// </summary>
+        public DateTime? MovedFired { get; set; }
+
+        /// <summary>
         /// Gets or sets the Education
         /// </summary>
         public string Education { get; set; }

@@ -8,13 +8,13 @@ namespace PocArquitecture.BusinessLogic.Staff
 {
     public class StaffBusinessLogic : IStaffBusinessLogic
     {
-        readonly IStaffValidation _validator;
+        //readonly IStaffValidation _validator;
         readonly IStaffBusinessRepository _staffRepository;
         //readonly IHospitalBusinessRepository _hospitalBusinessRepository;
 
-        public StaffBusinessLogic(IStaffValidation validator, IStaffBusinessRepository staffRepository/*, IHospitalBusinessRepository hospitalBusinessRepository*/)
+        public StaffBusinessLogic(/*IStaffValidation validator,*/ IStaffBusinessRepository staffRepository/*, IHospitalBusinessRepository hospitalBusinessRepository*/)
         {
-            _validator = validator;
+            //_validator = validator;
             _staffRepository = staffRepository;
             //  _hospitalBusinessRepository = hospitalBusinessRepository;
         }
@@ -61,7 +61,7 @@ namespace PocArquitecture.BusinessLogic.Staff
         /// <returns></returns>
         public IResult Update(IStaff person)
         {
-            IResult resultValidations = _validator.Validate(person);
+            IResult resultValidations = null; //_validator.Validate(person);
 
             if (!resultValidations.ComputeResult().IsOk())
             {

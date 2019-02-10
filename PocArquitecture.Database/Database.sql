@@ -13,12 +13,16 @@ DROP TABLE IF EXISTS `pocarquitecturedb`.`Staff`;
   
 CREATE TABLE `pocarquitecturedb`.`Staff` (
   `StaffId` INT NOT NULL,
+  `PersonId` VARCHAR(9) NOT NULL,
   `Certification` VARCHAR(200) NULL,
   `DeparmentId` INT NULL,
   `Education` VARCHAR(200) NULL,
-  `Joined` DATETIME NULL,
+  `Joined` DATETIME NOT NULL,
+  `MovedFired` DATETIME NULL,
   `Languages` VARCHAR(200) NULL,
-  PRIMARY KEY (`StaffId`))
+  PRIMARY KEY (`StaffId`),
+  CONSTRAINT UC_Staff UNIQUE (PersonId,DeparmentId,Joined)
+  )
   ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
 DROP TABLE IF EXISTS `pocarquitecturedb`.`Hospital`;
@@ -52,8 +56,8 @@ DEFAULT CHARACTER SET = ascii;
 DROP TABLE IF EXISTS `pocarquitecturedb`.`Patient`;
 
 CREATE TABLE `pocarquitecturedb`.`Patient` (
-  `PatiendId` INT NOT NULL,
-  `PersonId` INT NOT NULL,
+  `PatiendId` INT NOT NULL auto_increment,
+  `PersonId` VARCHAR(9) NOT NULL,
   `AcceptedDate` DATETIME NULL,
   `Age` INT NULL,
   `History` VARCHAR(45) NULL,

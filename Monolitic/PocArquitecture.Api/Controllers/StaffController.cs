@@ -58,7 +58,7 @@ namespace PocArquitecture.Api.Controllers
                 doctor.Gender = "Male";
                 doctor.BirthDate = DateTime.UtcNow.AddYears(-20);
                 IResult result = null;
-                //  result = staffBusinessLogic.AddStaffInHospital(doctor, codHospital, codDepartment);
+                result = staffBusinessLogic.AddStaffInHospital(doctor, codHospital, codDepartment);
 
                 return Ok();
             }

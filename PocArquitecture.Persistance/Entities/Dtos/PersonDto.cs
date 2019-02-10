@@ -47,7 +47,7 @@
         /// <summary>
         /// Gets or sets the HomeAdress
         /// </summary>
-        public string HomeAdress { get; set; }
+        public string HomeAddress { get; set; }
 
         /// <summary>
         /// Gets or sets the Phone

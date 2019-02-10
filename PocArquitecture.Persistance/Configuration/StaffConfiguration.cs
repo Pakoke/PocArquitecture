@@ -10,6 +10,7 @@ namespace PocArquitecture.Persistance.Configuration
         {
             builder.ToTable("Staff");
             builder.HasKey(c => c.StaffId);
+            builder.Property(c => c.StaffId).IsRequired().ValueGeneratedOnAdd();
             builder.Property(c => c.Certification).IsRequired().HasMaxLength(45);
             builder.Property(c => c.DeparmentId).IsRequired().HasMaxLength(100);
             builder.Property(c => c.Education).IsRequired().HasMaxLength(10);

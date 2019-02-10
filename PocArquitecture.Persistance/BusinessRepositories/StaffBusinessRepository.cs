@@ -30,11 +30,14 @@ namespace PocArquitecture.Persistance.BusinessRepositories
 
         public void Save(IStaff staff)
         {
-            var alreadyPerson = personRepository.GetById(staff.Dni);
 
-            if (alreadyPerson == null)
+            var personExist = new PersonDto() { Dni = staff.Dni };
+
+            personExist = personRepository.GetById(personExist.Dni);
+
+            if (personExist == null)
             {
-                alreadyPerson = new PersonDto()
+                personExist = new PersonDto()
                 {
                     BirthDate = staff.BirthDate,
                     Dni = staff.Dni,
@@ -42,12 +45,12 @@ namespace PocArquitecture.Persistance.BusinessRepositories
                     Gender = staff.Gender,
                     GivenName = staff.GiveName,
                 };
-                personRepository.Add(alreadyPerson);
+                personRepository.Add(personExist);
             }
 
             var staffDto = new StaffDto()
             {
-                PersonId = alreadyPerson.Dni,
+                PersonId = personExist.Dni,
                 Joined = DateTime.UtcNow
             };
 

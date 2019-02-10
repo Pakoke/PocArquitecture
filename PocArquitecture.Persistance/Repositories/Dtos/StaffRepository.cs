@@ -3,6 +3,7 @@ using PocArquitecture.Interfaces.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.Persistance.Repositories;
 using PocArquitecture.Persistance.Context;
 using PocArquitecture.Persistance.Entities;
+using System.Linq;
 
 namespace PocArquitecture.Persistance.Repositories
 {
@@ -17,6 +18,11 @@ namespace PocArquitecture.Persistance.Repositories
         public IResultObjects<ILaboralHistory> GetLaboralHistory(IPersonFilter filter)
         {
             throw new System.NotImplementedException();
+        }
+
+        public StaffDto GetStaffByDeparmentAndPersonIdWorking(int deparmentId, string personId)
+        {
+            return this._objectSet.FirstOrDefault(s => s.DeparmentId == deparmentId && s.PersonId == personId && s.MovedFired == null);
         }
     }
 }
