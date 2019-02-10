@@ -18,7 +18,10 @@ namespace PocArquitecture.BusinessLogic.Common
         ERROR_NUM_OF_YEARS_REQUIRED,
 
         [Description("Medical speciality of the doctor doesn´t match with speciality  of the Department")]
-        ERROR_SPECIALITY_DEPARTMENT_MATCH_WITH_THE_DOCTOR_ONE
+        ERROR_SPECIALITY_DEPARTMENT_MATCH_WITH_THE_DOCTOR_ONE,
+
+        [Description("ERROR WHEN SAVING DATA OF A MEMBER OF STAFF")]
+        ERROR_EXCEPTION_PERSISTANCE_STAFF
 
 
     }

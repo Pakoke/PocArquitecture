@@ -1,11 +1,13 @@
 ﻿
 
+using PocArquitecture.Interfaces.BusinessLogic.Entities;
+
 namespace PocArquitecture.Persistance.Entities
 {
     /// <summary>
     /// Defines the <see cref="DepartmentDto" />
     /// </summary>
-    public class DepartmentDto : IDepartmentDto
+    public class DepartmentDto : IDepartmentDto//, IDepartment
     {
         /// <summary>
         /// Gets or sets the DeparmentId
@@ -21,5 +23,11 @@ namespace PocArquitecture.Persistance.Entities
         /// Gets or sets the HostpitalId
         /// </summary>
         public int HostpitalId { get; set; }
+
+        public string Code { get; set; }
+
+        //public IHospital Center { get; set; }
+
+        public string Name { get; set; }
     }
 }

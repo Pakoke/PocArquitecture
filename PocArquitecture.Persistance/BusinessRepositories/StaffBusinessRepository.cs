@@ -6,6 +6,7 @@ using PocArquitecture.Interfaces.Common;
 using PocArquitecture.Interfaces.Persistance.Repositories;
 using PocArquitecture.Persistance.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace PocArquitecture.Persistance.BusinessRepositories
 {
@@ -25,7 +26,7 @@ namespace PocArquitecture.Persistance.BusinessRepositories
         }
         public IResultObjects<ILaboralHistory> GetLaboralHistory(IPersonFilter filter)
         {
-            throw new NotImplementedException();
+            return new ResultPersistanceObjects<ILaboralHistory>(EnumResultPersistance.OK,new List<ILaboralHistory>());
         }
 
         public void Save(IStaff staff)

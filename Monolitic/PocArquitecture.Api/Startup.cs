@@ -88,10 +88,22 @@ namespace PocArquitecture.Api
             services.AddTransient<IGenericUoW, GenericUoW>();
             services.AddTransient<IStaffBusinessLogic, StaffBusinessLogic>();
             services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
+            services.AddTransient<IHospitalBusinessRepository, HospitalBusinessRepository>();
 
-            services.AddTransient<IStaffValidation>(sp => new StaffValidate(new DoctorValidate(Configuration.Get<IStaffBusinessRepository>())));
+
+            services.AddTransient<IStaffValidationAdd>(sp => new StaffValidationAdd(
+                                                                 new StaffAsPersonValidate(
+                                                                 new DoctorValidate(sp.GetService<IStaffBusinessRepository>(),
+                                                                 new StaffValidate()
+                                                       ))));
+
+            services.AddTransient<IStaffValidationUpdate>(sp => new StaffValidationUpdate(
+                                                                    new StaffAsPersonValidate(
+                                                                    new DoctorValidate(sp.GetService<IStaffBusinessRepository>(),
+                                                                    new StaffValidate()
+                                                          ))));
+
             //services.AddTransient<IHospitalBusinessRepository, HospitalRepositoryHL>();
-
 
         }
 

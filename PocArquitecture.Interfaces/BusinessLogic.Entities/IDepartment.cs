@@ -6,7 +6,7 @@ namespace PocArquitecture.Interfaces.BusinessLogic.Entities
 {
     public interface IDepartment
     {
-        int Id { get; set; }
+        int DeparmentId { get; set; }
         string Code { get; set; }
         IHospital Center { get; set; }
         string Name { get; set; }

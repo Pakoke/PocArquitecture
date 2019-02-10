@@ -8,15 +8,20 @@ namespace PocArquitecture.BusinessLogic.Staff
 {
     public class StaffBusinessLogic : IStaffBusinessLogic
     {
-        readonly IStaffValidation _validator;
+        readonly IStaffValidationAdd _validatorAdd;
+        readonly IStaffValidationUpdate _validatorUpdate;
         readonly IStaffBusinessRepository _staffRepository;
-        //readonly IHospitalBusinessRepository _hospitalBusinessRepository;
+        readonly IHospitalBusinessRepository _hospitalBusinessRepository;
 
-        public StaffBusinessLogic(IStaffValidation validator, IStaffBusinessRepository staffRepository/*, IHospitalBusinessRepository hospitalBusinessRepository*/)
+        public StaffBusinessLogic(IStaffValidationAdd validator,
+                                  IStaffValidationUpdate validatorUpdate,
+                                  IStaffBusinessRepository staffRepository, 
+                                  IHospitalBusinessRepository hospitalBusinessRepository)
         {
-            _validator = validator;
+            _validatorAdd = validator;
+            _validatorUpdate = validatorUpdate;
             _staffRepository = staffRepository;
-            //  _hospitalBusinessRepository = hospitalBusinessRepository;
+            _hospitalBusinessRepository = hospitalBusinessRepository;
         }
 
         /// <summary>
@@ -28,40 +33,13 @@ namespace PocArquitecture.BusinessLogic.Staff
         /// <returns></returns>
         public IResult AddStaffInHospital(IStaff person, string codeHospital, string codeDepartment)
         {
-            //var resDepartment = _hospitalBusinessRepository.GetDepartmentInThisHospital(codeHospital, codeDepartment);
-            //if (!resDepartment.ComputeResult().IsOk())
-            //    return resDepartment;
+            var resDepartment = _hospitalBusinessRepository.GetDepartmentInThisHospital(codeHospital, codeDepartment);
+            if (!resDepartment.ComputeResult().IsOk())
+              return resDepartment;
 
-            //IResult resultValidations = _validator.Validate(person);
+             person.Department = resDepartment.GetItem();
 
-            //if (!resultValidations.ComputeResult().IsOk())
-            //{
-            //    return resultValidations;
-            //}
-
-            //person.Department = resDepartment.GetItem();
-
-            try
-            {
-                _staffRepository.Save(person);
-
-            }
-            catch (Exception e)
-            {
-                return new ResultBusinessLogic(EnumResultBL.ERROR_DEPARTMENT_REQUIRED);
-            }
-
-            return new ResultBusinessLogic(EnumResultBL.OK);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="person"></param>
-        /// <returns></returns>
-        public IResult Update(IStaff person)
-        {
-            IResult resultValidations = _validator.Validate(person);
+            IResult resultValidations = _validatorAdd.Validate(person);
 
             if (!resultValidations.ComputeResult().IsOk())
             {
@@ -75,7 +53,34 @@ namespace PocArquitecture.BusinessLogic.Staff
             }
             catch (Exception e)
             {
-                return new ResultBusinessLogic(EnumResultBL.ERROR_DEPARTMENT_REQUIRED);
+                return new ResultBusinessLogic(EnumResultBL.ERROR_EXCEPTION_PERSISTANCE_STAFF,e.Message);
+            }
+
+            return new ResultBusinessLogic(EnumResultBL.OK);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
+        public IResult Update(IStaff person)
+        {
+            IResult resultValidations = _validatorUpdate.Validate(person);
+
+            if (!resultValidations.ComputeResult().IsOk())
+            {
+                return resultValidations;
+            }
+
+            try
+            {
+                _staffRepository.Save(person);
+
+            }
+            catch (Exception e)
+            {
+                return new ResultBusinessLogic(EnumResultBL.ERROR_EXCEPTION_PERSISTANCE_STAFF, e.Message);
             }
             return new ResultBusinessLogic(EnumResultBL.OK);
         }

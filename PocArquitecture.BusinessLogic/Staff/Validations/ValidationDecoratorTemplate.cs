@@ -24,9 +24,12 @@ namespace PocArquitecture.BusinessLogic.Staff.Validations
                 var resultNext = Next.Validate(person);
                 var listToIt = resultNext.ResultDetails;
 
-                foreach (var aux in listToIt)
+                if (listToIt != null)
                 {
-                    resultCurrent.Add(aux);
+                    foreach (var aux in listToIt)
+                    {
+                        resultCurrent.Add(aux);
+                    }
                 }
             }
             return new ResultList(resultCurrent);
