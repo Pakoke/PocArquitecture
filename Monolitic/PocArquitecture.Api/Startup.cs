@@ -23,6 +23,8 @@ namespace PocArquitecture.Api
 {
     public class Startup
     {
+        public IServiceProvider ServicesProvider { get; set; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -84,10 +86,10 @@ namespace PocArquitecture.Api
 
             //GenericUoW
             services.AddTransient<IGenericUoW, GenericUoW>();
-
             services.AddTransient<IStaffBusinessLogic, StaffBusinessLogic>();
-            services.AddTransient<IStaffValidation, StaffValidate>();
             services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
+
+            services.AddTransient<IStaffValidation>(sp => new StaffValidate(new DoctorValidate(Configuration.Get<IStaffBusinessRepository>())));
             //services.AddTransient<IHospitalBusinessRepository, HospitalRepositoryHL>();
 
 

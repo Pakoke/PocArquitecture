@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using PocArquitecture.BusinessLogic.Common;
+﻿using PocArquitecture.BusinessLogic.Common;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
+using System.Collections.Generic;
 
 namespace PocArquitecture.BusinessLogic.Staff.Validations
 {
     public class StaffValidate : ValidationDecoratorTemplate
     {
 
-        public StaffValidate(IStaffValidation next = null): base(next)
+        public StaffValidate(IStaffValidation next = null) : base(next)
         {
-            
+
         }
 
 
@@ -25,7 +25,7 @@ namespace PocArquitecture.BusinessLogic.Staff.Validations
         }
     }
 
-   
 
-    
+
+
 }
