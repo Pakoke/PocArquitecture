@@ -3,7 +3,9 @@ using PocArquitecture.Api.Model;
 using PocArquitecture.Entities.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
+using System.Collections.Generic;
 
 namespace PocArquitecture.Api.Controllers
 {
@@ -36,10 +38,10 @@ namespace PocArquitecture.Api.Controllers
         /// POST api/values
         /// </summary>
         /// <param name="personModel">All the info required to create a new staff in the hospital</param>
-        /// <response code="200">The user is properly register</response>
-        /// <response code="401">User is not valid</response>    
         [HttpPost]
-        //[SwaggerRequestExample(typeof(CreateStaffModel), typeof(CreateStaffModelExample))]
+        [SwaggerResponse(statusCode: 200, description: "The staff is properly register", type: typeof(IEnumerable<StatusCodeResult>))]
+        [SwaggerResponse(statusCode: 400, description: "User is not valid", type: typeof(IEnumerable<StatusCodeResult>))]
+        [SwaggerResponse(statusCode: 404, description: "Request not valid", type: typeof(IEnumerable<StatusCodeResult>))]
         public IActionResult Post([FromBody] CreateStaffModel personModel)
         {
             if (ModelState.IsValid)
