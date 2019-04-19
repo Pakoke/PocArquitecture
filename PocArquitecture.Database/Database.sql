@@ -29,12 +29,27 @@ DROP TABLE IF EXISTS `pocarquitecturedb`.`Hospital`;
   
 CREATE TABLE `pocarquitecturedb`.`Hospital` (
   `HospitalId` INT NOT NULL,
-  `Name` VARCHAR(45) NULL,
   `Address` VARCHAR(45) NULL,
-  `Phone` INT NULL,
+  `Name` VARCHAR(45) NULL,
+  `Phone` VARCHAR(15) NULL,
+  `Code` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`HospitalId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = ascii;
+
+INSERT INTO `pocarquitecturedb`.`Hospital`
+(`HospitalId`,
+`Address`,
+`Name`,
+`Phone`,
+`Code`)
+VALUES
+(1,
+"1111",
+"Virgen Macarena",
+"+34687691033",
+"H1");
+
 
 DROP TABLE IF EXISTS `pocarquitecturedb`.`Person`;
 
@@ -73,10 +88,26 @@ DROP TABLE IF EXISTS `pocarquitecturedb`.`Department`;
 CREATE TABLE `pocarquitecturedb`.`Department` (
   `DepartmentId` INT NOT NULL,
   `TypeOfDepartment` VARCHAR(45) NULL,
-  `HostpitalId` INT NULL,
+  `HospitalId` INT NULL,
+  `Code` VARCHAR(15) NOT NULL,
+  `Name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`DepartmentId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = ascii;
+
+INSERT INTO `pocarquitecturedb`.`Department`
+(`DepartmentId`,
+`TypeOfDepartment`,
+`HospitalId`,
+`Code`,
+`Name`)
+VALUES
+(1,
+"TIPO1",
+1,
+"H1D1",
+"GERIATRIA");
+
 
 DROP TABLE IF EXISTS `pocarquitecturedb`.`AppConfiguration`;
 
