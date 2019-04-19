@@ -10,8 +10,14 @@ namespace PocArquitecture.Persistance
         [Description("OK")]
         OK = 0,
 
-        [Description("Department is requiered: {0}")]
+        [Description("Department is required: {0}")]
         ERROR_UNEXPECTED_EXCEPTION,
+
+        [Description("Hospital Result not found {0}")]
+        ERROR_NOT_FOUND_HOSPITAL,
+
+        [Description("Department Result not found {0}")]
+        ERROR_NOT_FOUND_DEPARMENT
     }
 
 
@@ -31,12 +37,12 @@ namespace PocArquitecture.Persistance
     /// 
     /// </summary>
     /// <typeparam name="X"></typeparam>
-    public class ResultPersistanceObject <X>  : AbstractResultObject<EnumResultPersistance, X> 
+    public class ResultPersistanceObject<X> : AbstractResultObject<EnumResultPersistance, X>
     {
         public ResultPersistanceObject(EnumResultPersistance x, params object[] para) : base(x, x.GetDescription(), para)
         { }
 
-        public ResultPersistanceObject(X item) : base(EnumResultPersistance.OK,item, EnumResultPersistance.OK.GetDescription())
+        public ResultPersistanceObject(X item) : base(EnumResultPersistance.OK, item, EnumResultPersistance.OK.GetDescription())
         { }
     }
 

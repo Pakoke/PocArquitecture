@@ -10,11 +10,10 @@ namespace PocArquitecture.Persistance.Configuration
         {
             builder.ToTable("Hospital");
             builder.HasKey(c => c.HospitalId);
-            builder.Property(c => c.Name).IsRequired().HasMaxLength(45);
             builder.Property(c => c.Address).IsRequired().HasMaxLength(100);
-            builder.Property(c => c.Phone).IsRequired().HasMaxLength(14);
-
-
+            builder.Property(c => c.Name).IsRequired().HasMaxLength(45);
+            builder.Property(c => c.Phone).IsRequired().HasMaxLength(15);
+            builder.Property(c => c.Code).IsRequired().HasMaxLength(15);
         }
     }
 }

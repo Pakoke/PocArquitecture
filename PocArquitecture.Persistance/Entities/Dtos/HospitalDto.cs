@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using PocArquitecture.Interfaces.BusinessLogic.Entities;
-
-namespace PocArquitecture.Persistance.Entities
+﻿namespace PocArquitecture.Persistance.Entities
 {
     /// <summary>
     /// Defines the <see cref="HospitalDto" />
@@ -9,7 +6,7 @@ namespace PocArquitecture.Persistance.Entities
     public class HospitalDto : IHospitalDto//, IHospital
     {
         /// <summary>
-        /// Gets or sets the Id
+        /// Gets or sets the HospitalId
         /// </summary>
         public int HospitalId { get; set; }
 
@@ -26,12 +23,11 @@ namespace PocArquitecture.Persistance.Entities
         /// <summary>
         /// Gets or sets the Phone
         /// </summary>
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Code
+        /// </summary>
         public string Code { get; set; }
-
-       // public List<IDepartment> Departments { get; set; }
-
-        
     }
 }

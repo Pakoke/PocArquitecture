@@ -53,16 +53,16 @@ namespace PocArquitecture.Interfaces.Common
 
         public virtual EResult ComputeResult()
         {
-            if ( string.IsNullOrWhiteSpace(CodeAsString) )
+            if (string.IsNullOrWhiteSpace(CodeAsString))
                 return EResult.ERROR;
 
-            if (CodeAsString.StartsWith("OK"))
+            if (CodeAsString.StartsWith("OK", System.StringComparison.Ordinal))
                 return EResult.OK;
 
-            if (CodeAsString.StartsWith("ERROR"))
+            if (CodeAsString.StartsWith("ERROR", System.StringComparison.Ordinal))
                 return EResult.ERROR;
 
-            if (CodeAsString.StartsWith("WARNING"))
+            if (CodeAsString.StartsWith("WARNING", System.StringComparison.Ordinal))
                 return EResult.WARNING;
 
             return EResult.ERROR;
@@ -168,9 +168,9 @@ namespace PocArquitecture.Interfaces.Common
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="X"></typeparam>
-    public abstract class AbstractResultObjects<T, X> : 
-            AbstractResult<T>, 
-            IResultObjects<X> 
+    public abstract class AbstractResultObjects<T, X> :
+            AbstractResult<T>,
+            IResultObjects<X>
     {
         private IList<X> items;
 

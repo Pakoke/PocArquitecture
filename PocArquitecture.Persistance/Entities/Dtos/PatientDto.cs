@@ -8,7 +8,7 @@
     public class PatientDto : IPatientDto
     {
         /// <summary>
-        /// Gets or sets the Id
+        /// Gets or sets the PatientId
         /// </summary>
         public int PatientId { get; set; }
 

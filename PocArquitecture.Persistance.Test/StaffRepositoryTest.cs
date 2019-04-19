@@ -55,7 +55,10 @@ namespace PocArquitecture.Persistance.Test
             _appStaffRepository.Add(Staff);
             _UoW.SaveChanges();
 
+            _appStaffRepository.GetById(Staff.StaffId);
+
             var existingStaff = _appStaffRepository.GetStaffByDeparmentAndPersonIdWorking(Staff.DeparmentId, Staff.PersonId);
+            
             Assert.IsNotNull(existingStaff);
 
             _appStaffRepository.Delete(existingStaff);

@@ -6,6 +6,6 @@ namespace PocArquitecture.Interfaces.Persistance.Repositories
 {
     public interface IHospitalRepository : IGenericRepository<HospitalDto>
     {
-        
+        IHospitalDto GetHospitalByCodeHospital(string codeHospital);
     }
 }

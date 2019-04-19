@@ -7,6 +7,9 @@
     /// </summary>
     public class PersonDto : IPersonDto
     {
+        /// <summary>
+        /// Gets or sets the Dni
+        /// </summary>
         public string Dni { get; set; }
 
         /// <summary>
@@ -15,7 +18,7 @@
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or sets the GiveName
+        /// Gets or sets the GivenName
         /// </summary>
         public string GivenName { get; set; }
 
@@ -45,7 +48,7 @@
         public string Gender { get; set; }
 
         /// <summary>
-        /// Gets or sets the HomeAdress
+        /// Gets or sets the HomeAddress
         /// </summary>
         public string HomeAddress { get; set; }
 

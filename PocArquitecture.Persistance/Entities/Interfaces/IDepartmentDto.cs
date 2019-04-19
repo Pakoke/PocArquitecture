@@ -8,7 +8,7 @@
         /// <summary>
         /// Gets or sets the DeparmentId
         /// </summary>
-        int DeparmentId { get; set; }
+        int DepartmentId { get; set; }
 
         /// <summary>
         /// Gets or sets the TypeOfDepartment
@@ -18,6 +18,17 @@
         /// <summary>
         /// Gets or sets the HostpitalId
         /// </summary>
-        int HostpitalId { get; set; }
+        int HospitalId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Code
+        /// </summary>
+        string Code { get; set; }
+
+        //IHospital Center { get; set; }
+        /// <summary>
+        /// Gets or sets the Name
+        /// </summary>
+        string Name { get; set; }
     }
 }

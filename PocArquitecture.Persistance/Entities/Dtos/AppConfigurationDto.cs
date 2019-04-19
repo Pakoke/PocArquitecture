@@ -6,7 +6,7 @@
     public class AppConfigurationDto : IAppConfigurationDto
     {
         /// <summary>
-        /// Gets or sets the ConfigurationId
+        /// Gets or sets the AppConfigurationId
         /// </summary>
         public int AppConfigurationId { get; set; }
 

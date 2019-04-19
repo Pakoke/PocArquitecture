@@ -15,7 +15,7 @@ namespace PocArquitecture.BusinessLogic.Staff
 
         public StaffBusinessLogic(IStaffValidationAdd validator,
                                   IStaffValidationUpdate validatorUpdate,
-                                  IStaffBusinessRepository staffRepository, 
+                                  IStaffBusinessRepository staffRepository,
                                   IHospitalBusinessRepository hospitalBusinessRepository)
         {
             _validatorAdd = validator;
@@ -35,9 +35,9 @@ namespace PocArquitecture.BusinessLogic.Staff
         {
             var resDepartment = _hospitalBusinessRepository.GetDepartmentInThisHospital(codeHospital, codeDepartment);
             if (!resDepartment.ComputeResult().IsOk())
-              return resDepartment;
+                return resDepartment;
 
-             person.Department = resDepartment.GetItem();
+            person.Department = resDepartment.GetItem();
 
             IResult resultValidations = _validatorAdd.Validate(person);
 
@@ -53,7 +53,7 @@ namespace PocArquitecture.BusinessLogic.Staff
             }
             catch (Exception e)
             {
-                return new ResultBusinessLogic(EnumResultBL.ERROR_EXCEPTION_PERSISTANCE_STAFF,e.Message);
+                return new ResultBusinessLogic(EnumResultBL.ERROR_EXCEPTION_PERSISTANCE_STAFF, e.Message);
             }
 
             return new ResultBusinessLogic(EnumResultBL.OK);

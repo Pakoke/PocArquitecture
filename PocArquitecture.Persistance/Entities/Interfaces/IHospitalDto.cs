@@ -23,6 +23,8 @@
         /// <summary>
         /// Gets or sets the Phone
         /// </summary>
-        int Phone { get; set; }
+        string Phone { get; set; }
+
+        string Code { get; set; }
     }
 }

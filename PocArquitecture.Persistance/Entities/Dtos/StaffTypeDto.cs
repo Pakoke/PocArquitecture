@@ -1,6 +1,4 @@
-﻿
-
-namespace PocArquitecture.Persistance.Entities
+﻿namespace PocArquitecture.Persistance.Entities
 {
     /// <summary>
     /// Defines the <see cref="StaffTypeDto" />
