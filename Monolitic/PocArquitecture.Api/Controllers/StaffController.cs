@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PocArquitecture.Api.Model;
 using PocArquitecture.Entities.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
@@ -6,14 +7,6 @@ using System;
 
 namespace PocArquitecture.Api.Controllers
 {
-
-    public class StaffJson
-    {
-        public string dni { get; set; }
-        public string rol { get; set; }
-        public int numOfYearsBlaBla { get; set; }
-        public string medicalSpeciality { get; set; }
-    }
 
     [Route("api/[controller]")]
     [ApiController]
@@ -42,57 +35,45 @@ namespace PocArquitecture.Api.Controllers
         /// <summary>
         /// POST api/values
         /// </summary>
-        /// <param name="dni">The value<see cref="string"/></param>
-        /// <param name="codHospital">The value<see cref="string"/></param>
-        /// <param name="codDepartment">The value<see cref="string"/></param>
-        /// Sample UserLogin Request:
-        ///
-        ///     POST /StaffJson
-        ///     {
-        ///           "dni": "46258610T",
-        ///           "rol": "Doctor",
-        ///           "numOfYearsBlaBla": "15",
-        ///           "medicalSpeciality": "Type1",
-        ///     }
-        ///
-        /// </remarks>
+        /// <param name="personModel">All the info required to create a new staff in the hospital</param>
         /// <response code="200">The user is properly register</response>
         /// <response code="401">User is not valid</response>    
         [HttpPost]
-        public IActionResult Post([FromBody] StaffJson personJson, string codHospital, string codDepartment)
+        //[SwaggerRequestExample(typeof(CreateStaffModel), typeof(CreateStaffModelExample))]
+        public IActionResult Post([FromBody] CreateStaffModel personModel)
         {
             if (ModelState.IsValid)
             {
                 IResult result = null;
                 IStaff person = null;
-                if (personJson.rol == "Doctor")
+                if (personModel.rol == "Doctor")
                 {
                     var doctor = new Doctor();
-                    doctor.Dni = personJson.dni;
+                    doctor.Dni = personModel.dni;
                     doctor.Gender = "Male";
                     doctor.BirthDate = DateTime.UtcNow.AddYears(-20);
-                    doctor.MedicalSpeciality = personJson.medicalSpeciality;
-                    doctor.NumOfYearsBlaBla = personJson.numOfYearsBlaBla;
+                    doctor.MedicalSpeciality = personModel.medicalSpeciality;
+                    doctor.NumOfYearsBlaBla = personModel.numOfYearsBlaBla;
                     person = doctor;
                 }
                 else
                 {
                     var nurse = new Nurse();
-                    nurse.Dni = personJson.dni;
+                    nurse.Dni = personModel.dni;
                     nurse.Gender = "Female";
                     nurse.BirthDate = DateTime.UtcNow.AddYears(-20);
                     person = nurse;
                 }
 
 
-                result = staffBusinessLogic.AddStaffInHospital(person, codHospital, codDepartment);
+                result = staffBusinessLogic.AddStaffInHospital(person, personModel.codeHospital, personModel.codeDepartment);
                 if (result.ComputeResult().IsOk())
                 {
                     return Ok();
                 }
                 else
                 {
-                    throw new Exception(result.Message());                 
+                    return BadRequest(result.Message());
                 }
             }
             else
@@ -100,6 +81,6 @@ namespace PocArquitecture.Api.Controllers
                 return NotFound();
             }
         }
-        
+
     }
 }

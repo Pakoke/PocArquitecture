@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PocArquitecture.Api.RequestExamples;
 using PocArquitecture.BusinessLogic.Staff;
 using PocArquitecture.BusinessLogic.Staff.Validations;
 using PocArquitecture.Interfaces;
@@ -14,6 +15,7 @@ using PocArquitecture.Persistance;
 using PocArquitecture.Persistance.BusinessRepositories;
 using PocArquitecture.Persistance.Context;
 using PocArquitecture.Persistance.Repositories;
+using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
@@ -47,9 +49,9 @@ namespace PocArquitecture.Api
                     TermsOfService = "None",
                     Contact = new Contact
                     {
-                        Name = "Francisco Javier Ruiz de la Torre",
+                        Name = "Francisco Javier Ruiz de la Torre,Jose Angel",
                         Email = string.Empty,
-                        Url = "https://twitter.com/spboyer"
+                        Url = "https://github.com/Pakoke,https://github.com/ANG78"
                     },
                     License = new License
                     {
@@ -57,15 +59,18 @@ namespace PocArquitecture.Api
                         Url = "https://example.com/license"
                     }
                 });
-
+                c.ExampleFilters();
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
 
+            services.AddSwaggerExamplesFromAssemblyOf<CreateStaffModelExample>();
+
             services.AddDbContext<PocArquitectureContext>(options =>
-                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+                //options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+                options.UseInMemoryDatabase(databaseName: "pocarquitecturedb")
                 );
 
             ConfigureRepositoryServices(services);
@@ -85,7 +90,9 @@ namespace PocArquitecture.Api
             services.AddTransient<IPatientRepository, PatientRepository>();
 
             //GenericUoW
-            services.AddTransient<IGenericUoW, GenericUoW>();
+            services.AddTransient<IGenericUoW, GenericUoW>(sp => new GenericUoW(
+                sp.GetRequiredService<PocArquitectureContext>(), false)
+                );
             services.AddTransient<IStaffBusinessLogic, StaffBusinessLogic>();
             services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
             services.AddTransient<IHospitalBusinessRepository, HospitalBusinessRepository>();
