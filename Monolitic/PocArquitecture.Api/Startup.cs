@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PocArquitecture.Api.RequestExamples;
+using PocArquitecture.BusinessLogic.Department;
+using PocArquitecture.BusinessLogic.Hospital;
 using PocArquitecture.BusinessLogic.Staff;
 using PocArquitecture.BusinessLogic.Staff.Validations;
 using PocArquitecture.Interfaces;
@@ -94,6 +96,9 @@ namespace PocArquitecture.Api
                 sp.GetRequiredService<PocArquitectureContext>(), false)
                 );
             services.AddTransient<IStaffBusinessLogic, StaffBusinessLogic>();
+            services.AddTransient<IHospitalBusinessLogic, HospitalBusinessLogic>();
+            services.AddTransient<IDepartmentBusinessLogic, DepartmentBusinessLogic>();
+
             services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
             services.AddTransient<IHospitalBusinessRepository, HospitalBusinessRepository>();
 

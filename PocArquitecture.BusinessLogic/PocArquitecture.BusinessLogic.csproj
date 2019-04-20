@@ -9,9 +9,4 @@
     <ProjectReference Include="..\PocArquitecture.Interfaces\PocArquitecture.Interfaces.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Department\" />
-    <Folder Include="Hospital\" />
-  </ItemGroup>
-
 </Project>
