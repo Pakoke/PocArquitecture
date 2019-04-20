@@ -15,6 +15,7 @@ namespace PocArquitecture.Persistance.BusinessRepositories
         public string Name { get; set; }
         public string Address { get; set; }
         public List<IDepartment> Departments { get; set; }
+        public string Phone { get; set; }
     }
 
     public class HospitalBusinessRepository : IHospitalBusinessRepository
@@ -61,9 +62,22 @@ namespace PocArquitecture.Persistance.BusinessRepositories
             return new ResultPersistanceObject<IDepartment>(department);
         }
 
-        public void Save(IHospital staff)
+        public void Save(IHospital hospital)
         {
-            throw new System.NotImplementedException();
+            HospitalDto hospitalDto = new HospitalDto()
+            {
+                Address = hospital.Address,
+                Code = hospital.Code,
+                Name = hospital.Name,
+                Phone = hospital.Phone
+            };
+
+            this._hospitalRepository.Add(hospitalDto);
+
+            this._uow.SaveChanges();
+
+            return;
+
         }
     }
 }

@@ -69,6 +69,7 @@ namespace PocArquitecture.Api
             });
 
             services.AddSwaggerExamplesFromAssemblyOf<CreateStaffModelExample>();
+            services.AddSwaggerExamplesFromAssemblyOf<CreateHospitalModelExample>();
 
             services.AddDbContext<PocArquitectureContext>(options =>
                 //options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))

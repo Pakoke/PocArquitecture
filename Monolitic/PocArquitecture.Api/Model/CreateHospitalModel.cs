@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace PocArquitecture.Api.Model
+﻿namespace PocArquitecture.Api.Model
 {
     public class CreateHospitalModel
     {
+        public string Address { get; internal set; }
+        public string Code { get; internal set; }
+        public string Name { get; internal set; }
+        public string Phone { get; internal set; }
     }
 }

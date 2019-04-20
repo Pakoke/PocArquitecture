@@ -26,7 +26,7 @@ namespace PocArquitecture.Api.Controllers
         /// <summary>
         /// GET api/values
         /// </summary>
-        /// <returns>The <see cref="ActionResult{IEnumerable{string}}"/></returns>
+        /// <returns>The <see cref="ActionResult"/></returns>
         [HttpGet]
         public IActionResult Get()
         {
