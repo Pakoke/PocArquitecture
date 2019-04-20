@@ -9,15 +9,6 @@ using System.Collections.Generic;
 namespace PocArquitecture.Persistance.BusinessRepositories
 {
 
-    public class Department : IDepartment
-    {
-        public int DeparmentId { get; set; }
-        public string Code { get; set; }
-        public IHospital Center { get; set; }
-        public string Name { get; set; }
-        public string TypeOfDepartment { get; set; }
-    }
-
     public class Hospital : IHospital
     {
         public string Code { get; set; }
@@ -68,6 +59,11 @@ namespace PocArquitecture.Persistance.BusinessRepositories
             };
 
             return new ResultPersistanceObject<IDepartment>(department);
+        }
+
+        public void Save(IHospital staff)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

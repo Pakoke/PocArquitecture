@@ -6,5 +6,7 @@ namespace PocArquitecture.Interfaces.BussinesLogic.Repositories
     public interface IHospitalBusinessRepository
     {
         IResultObject<IDepartment> GetDepartmentInThisHospital(string codeHospital, string codeDepartment);
+
+        void Save(IHospital staff);
     }
 }
