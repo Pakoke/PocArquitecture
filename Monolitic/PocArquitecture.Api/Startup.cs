@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using PocArquitecture.Api.Diagnostic;
 using PocArquitecture.Api.RequestExamples;
 using PocArquitecture.BusinessLogic.Department;
 using PocArquitecture.BusinessLogic.Hospital;
@@ -17,6 +19,7 @@ using PocArquitecture.Persistance;
 using PocArquitecture.Persistance.BusinessRepositories;
 using PocArquitecture.Persistance.Context;
 using PocArquitecture.Persistance.Repositories;
+using Serilog;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
@@ -123,23 +126,30 @@ namespace PocArquitecture.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            loggerFactory.AddSerilog();
+
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(Configuration)
+                .CreateLogger();
+
+            Log.Information("Starting up");
+
+            app.UseMiddleware<SerilogMiddleware>();
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-
-
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "PocArquitecture Api V1");
             });
 

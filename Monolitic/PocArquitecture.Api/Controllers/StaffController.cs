@@ -3,6 +3,7 @@ using PocArquitecture.Api.Model;
 using PocArquitecture.Entities.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
+using Serilog;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace PocArquitecture.Api.Controllers
     [ApiController]
     public class StaffController : ControllerBase
     {
+        readonly ILogger _log = Log.ForContext<StaffController>();
+
         readonly IStaffBusinessLogic staffBusinessLogic;
 
         public StaffController(IStaffBusinessLogic staffBusinessLogic)
@@ -30,6 +33,8 @@ namespace PocArquitecture.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            _log.Information("The StaffController is working properly.");
+
             return Ok();
         }
 
