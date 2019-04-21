@@ -38,7 +38,7 @@ namespace PocArquitecture.BusinessLogic.Hospital
             }
             catch (Exception e)
             {
-                return new ResultBusinessLogic(EnumResultBL.ERROR_EXCEPTION_PERSISTANCE_STAFF, e.Message);
+                return new ResultBusinessLogic(EnumResultBL.ERROR_EXCEPTION_PERSISTANCE_HOSPITAL, e.Message);
             }
 
             return new ResultBusinessLogic(EnumResultBL.OK);

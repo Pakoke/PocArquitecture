@@ -2,9 +2,9 @@
 {
     public class CreateHospitalModel
     {
-        public string Address { get; internal set; }
-        public string Code { get; internal set; }
-        public string Name { get; internal set; }
-        public string Phone { get; internal set; }
+        public string address { get; set; }
+        public string code { get; set; }
+        public string name { get; set; }
+        public string phone { get; set; }
     }
 }

@@ -9,8 +9,8 @@ namespace PocArquitecture.Api.RequestExamples
         {
             return new CreateStaffModel()
             {
-                codeDepartment = "1A",
-                codeHospital = "1D",
+                codeDepartment = "1P",
+                codeHospital = "1H",
                 dni = "46258610T",
                 rol = "Doctor",
                 numOfYearsBlaBla = 15,

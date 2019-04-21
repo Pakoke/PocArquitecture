@@ -70,6 +70,7 @@ namespace PocArquitecture.Api
 
             services.AddSwaggerExamplesFromAssemblyOf<CreateStaffModelExample>();
             services.AddSwaggerExamplesFromAssemblyOf<CreateHospitalModelExample>();
+            services.AddSwaggerExamplesFromAssemblyOf<CreateDepartmentModelExample>();
 
             services.AddDbContext<PocArquitectureContext>(options =>
                 //options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
@@ -102,6 +103,7 @@ namespace PocArquitecture.Api
 
             services.AddTransient<IStaffBusinessRepository, StaffBusinessRepository>();
             services.AddTransient<IHospitalBusinessRepository, HospitalBusinessRepository>();
+            services.AddTransient<IDepartmentBusinessRepository, DepartmentBusinessRepository>();
 
 
             services.AddTransient<IStaffValidationAdd>(sp => new StaffValidationAdd(

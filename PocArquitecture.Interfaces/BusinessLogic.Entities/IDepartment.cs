@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PocArquitecture.Interfaces.BusinessLogic.Entities
+﻿namespace PocArquitecture.Interfaces.BusinessLogic.Entities
 {
     public interface IDepartment
     {
@@ -10,6 +6,6 @@ namespace PocArquitecture.Interfaces.BusinessLogic.Entities
         string Code { get; set; }
         IHospital Center { get; set; }
         string Name { get; set; }
-        string TypeOfDepartment { get; set; }    
+        string TypeOfDepartment { get; set; }
     }
 }

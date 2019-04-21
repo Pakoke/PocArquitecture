@@ -21,9 +21,16 @@ namespace PocArquitecture.BusinessLogic.Common
         ERROR_SPECIALITY_DEPARTMENT_MATCH_WITH_THE_DOCTOR_ONE,
 
         [Description("ERROR WHEN SAVING DATA OF A MEMBER OF STAFF")]
-        ERROR_EXCEPTION_PERSISTANCE_STAFF
+        ERROR_EXCEPTION_PERSISTANCE_STAFF,
 
+        [Description("ERROR WHEN SAVING DATA OF A MEMBER OF DEPARTMENT")]
+        ERROR_EXCEPTION_PERSISTANCE_DEPARTMENT,
 
+        [Description("ERROR WHEN SAVING DATA OF A MEMBER OF HOSPITAL")]
+        ERROR_EXCEPTION_PERSISTANCE_HOSPITAL,
+
+        [Description("The Hospital provided is not valid.")]
+        ERROR_HOSPITAL_NOT_VALID
     }
 
     public class ResultValidation : AbstractResult<EnumResultBL>

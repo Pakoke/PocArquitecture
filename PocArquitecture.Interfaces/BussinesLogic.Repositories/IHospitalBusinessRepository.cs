@@ -8,5 +8,7 @@ namespace PocArquitecture.Interfaces.BussinesLogic.Repositories
         IResultObject<IDepartment> GetDepartmentInThisHospital(string codeHospital, string codeDepartment);
 
         void Save(IHospital staff);
+
+        IResultObject<IHospital> GetHospitalByCode(string code);
     }
 }

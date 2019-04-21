@@ -1,22 +1,13 @@
-﻿using PocArquitecture.Interfaces;
+﻿using PocArquitecture.Entities.BusinessLogic.Entities;
+using PocArquitecture.Interfaces;
 using PocArquitecture.Interfaces.BusinessLogic;
 using PocArquitecture.Interfaces.BusinessLogic.Entities;
 using PocArquitecture.Interfaces.BussinesLogic.Repositories;
 using PocArquitecture.Interfaces.Persistance.Repositories;
 using PocArquitecture.Persistance.Entities;
-using System.Collections.Generic;
 
 namespace PocArquitecture.Persistance.BusinessRepositories
 {
-
-    public class Hospital : IHospital
-    {
-        public string Code { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public List<IDepartment> Departments { get; set; }
-        public string Phone { get; set; }
-    }
 
     public class HospitalBusinessRepository : IHospitalBusinessRepository
     {
@@ -60,6 +51,22 @@ namespace PocArquitecture.Persistance.BusinessRepositories
             };
 
             return new ResultPersistanceObject<IDepartment>(department);
+        }
+
+        public IResultObject<IHospital> GetHospitalByCode(string code)
+        {
+            IHospitalDto hospitalDto = _hospitalRepository.GetHospitalByCodeHospital(code);
+
+            var hospital = new Hospital()
+            {
+                Address = hospitalDto.Address,
+                Code = hospitalDto.Code,
+                HospitalId = hospitalDto.HospitalId,
+                Name = hospitalDto.Name,
+                Phone = hospitalDto.Phone
+            };
+
+            return new ResultPersistanceObject<IHospital>(hospital);
         }
 
         public void Save(IHospital hospital)

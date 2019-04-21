@@ -9,10 +9,10 @@ namespace PocArquitecture.Api.RequestExamples
         {
             return new CreateHospitalModel()
             {
-                Address = "Calle Wallabe, nº 15,Sidney",
-                Code = "1H",
-                Name = "Virgen del Rocio",
-                Phone = "+34666666666"
+                address = "Calle Wallabe, nº 15,Sidney",
+                code = "1H",
+                name = "Virgen del Rocio",
+                phone = "+34666666666"
             };
         }
     }
