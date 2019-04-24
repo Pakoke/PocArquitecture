@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PocArquitecture.Core\PocArquitecture.Core.csproj" />
     <ProjectReference Include="..\PocArquitecture.Entities\PocArquitecture.Entities.csproj" />
     <ProjectReference Include="..\PocArquitecture.Interfaces\PocArquitecture.Interfaces.csproj" />
   </ItemGroup>

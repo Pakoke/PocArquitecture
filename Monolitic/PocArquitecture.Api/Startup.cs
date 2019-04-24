@@ -137,6 +137,7 @@ namespace PocArquitecture.Api
 
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(Configuration)
+                .Enrich.FromLogContext()
                 .CreateLogger();
 
             Log.Information("Starting up");
